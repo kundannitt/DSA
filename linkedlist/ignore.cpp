@@ -23,19 +23,23 @@ void printlist(node *head) //recursive approach
 
 int main()
 {
-    node *head;
-    node *temp=head;
+    node *head = nullptr;
+    node *end=head;
     int n;
     cin>>n;
     for (int i=0;i<n;i++)
     {
         int x;
         cin>>x;
-        temp=new node(x);
-        temp=temp->next;
+
+        if (head == nullptr) {
+            head = new node(x);
+            end = head;
+        } else {
+            end->next=new node(x);
+            end=end->next;
+        }
     }
 
     printlist(head);
-
-
 }
