@@ -1,0 +1,6 @@
+git add "filename" or /foldername/filename or foldername => to add files or folders 
+git commit => to save changes 
+git push (remote) (branch) => to push the branch on remote
+git remote -v =>view all the remotes.
+git status => shows the changes made currently.
+git mv /dest/oldfilename /dest/newfilename => rename files
