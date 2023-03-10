@@ -10,7 +10,7 @@ int countsetbits(int n)
         {
             count++;
         }
-        n=n>>1;
+        n=n>>1; //right shifting 1 bit at a time and ANDING with 1
     }
     return count;
 }
