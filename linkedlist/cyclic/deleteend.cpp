@@ -1,6 +1,4 @@
-//the last node points to the head =>cyclic 
-// if we delete the head directly then it will lose it cycle.
-// so we first copy the val of head->next to head and then delete the 2nd node.
+//go to the 2nd last element and put next as head.
 #include <bits/stdc++.h>
 using namespace std;
 struct node{
@@ -22,19 +20,18 @@ void print(node *head){
     while(temp!=head);
 }
 
-node *deletehead(node *head){
-    if(head==nullptr){ //null list
-        return nullptr;
+node *deleteend(node *head){
+    if(head==nullptr || head->next==nullptr){
+        return head;
     }
-    if (head->next==nullptr){ //only one element
-        delete head;
-        return  nullptr;
-    }
-
-    head->data=head->next->data ; //copying the data of 2nd element to head.
     node *temp=head->next;
-    head->next=head->next->next;
-    delete temp;
+    node *temp2=head;
+    while(temp->next->next!=head){ // since circular.
+        temp=temp->next;
+        temp2=temp2->next;
+    }
+    temp->next=head;
+
     return head;
 
 }
@@ -48,7 +45,7 @@ int main(){
     temp1->next=temp2;
     temp2->next=temp3;
     temp3->next=head; // defines the cyclic linked list. 
-    head=deletehead(head);
+    head=deleteend(head);
     print(head);
     return 0;
 }

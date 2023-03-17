@@ -32,6 +32,7 @@ node *deletehead(node *head){
     }
 
     head->data=head->next->data ; //copying the data of 2nd element to head.
+
     node *temp=head->next;
     head->next=head->next->next;
     delete temp;
@@ -58,4 +59,3 @@ input : 10 20 30 40
 output: 20 30 40 
 */
 
-?
