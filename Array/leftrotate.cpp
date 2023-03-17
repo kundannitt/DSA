@@ -11,8 +11,9 @@ using namespace std;
 void rotate(vector<int> &a, int k)
 {
     int n=a.size();
-    reverse(a.begin(),a.end()-n+k);
-    reverse(a.begin()+k,a.end());
+    k=k%n; // if n==3 and k==5 then we have to rotate the array only by 2.
+    reverse(a.begin(),a.end()-k); // rotating first n-k elements.
+    reverse(a.begin()+n-k,a.end());
     reverse(a.begin(),a.end());
 }
 
