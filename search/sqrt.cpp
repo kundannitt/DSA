@@ -8,7 +8,7 @@ int squareroot(int n){
 
   while(low<=high){
 
-    int mid=(low+high)/2;
+    int mid=low+(high-low)/2;
     int x=mid*mid;
 
     if (x==n){
