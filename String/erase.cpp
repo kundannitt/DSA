@@ -17,10 +17,10 @@ void eraseDemo(string str)
 int main()
 {
 	string str("Hello World!");
-
-	cout << "Before erase : ";
-	cout << str << endl;
-	eraseDemo(str);
+	cout<<str.substr(2)<<endl;
+	// cout << "Before erase : ";
+	// cout << str << endl;
+	// eraseDemo(str);
 
 	return 0;
 }
