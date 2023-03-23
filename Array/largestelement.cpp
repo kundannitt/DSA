@@ -22,6 +22,7 @@ int main(){
     cin>>n;
     vector<int> a(n);
     for (auto &i:a) cin>>i;
+    cout<<"index is : "<<max_element(a.begin(),a.end())-a.begin()<<endl;
     cout<<largest(a);
     // print(a);
     return 0;
