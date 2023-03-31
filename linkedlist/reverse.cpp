@@ -21,7 +21,7 @@ node* reverse(node *head){
   node *prev=nullptr;
 
   while(curr){
-    node *next=curr->next; // store the next value of curr.
+    node *next=curr->next; // store the next value of curr. 20->30->40->50
     curr->next=prev; // eg 10->20->30->40->50 to prev<-10 , 20->30->40->50
     prev=curr; //move previous ahead
     curr=next;// move curr ahead
