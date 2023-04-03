@@ -3,7 +3,10 @@ using namespace std;
 
 void removeduplicates(vector<int>&a){
     int n=a.size();
-    vector<int> :: iterator it=unique(a.begin(),a.end()); 
+
+    //nums.erase(unique(nums.begin(),nums.end()));// =>best method 
+
+    vector<int> :: iterator it=unique(a.begin(),a.end()); // ok ok method 
     a.resize(distance(a.begin(),it));
 }
 
