@@ -9,7 +9,8 @@ struct node{
     left = right = nullptr;
   }
 };
-
+//Time Complexity of all the below traversals is O(n);
+//Space Complexity of all the below traversals is O(n);
 void inorder(node* root){
   if(root!=nullptr){
     inorder(root->left);
