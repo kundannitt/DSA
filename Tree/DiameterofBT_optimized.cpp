@@ -1,3 +1,4 @@
+// node on longest path.
 #include <bits/stdc++.h>
 using namespace std;
 struct node{

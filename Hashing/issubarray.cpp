@@ -10,7 +10,7 @@ bool issubarray(vector<int> &a, int n)
     for (int i=0;i<n;i++)
     {
         presum+=a[i];
-        if (presum==0) // for some sum write "presum==sum";
+        if (presum==0) // for some "sum" write "presum==sum";
         {
             return 0;
         }

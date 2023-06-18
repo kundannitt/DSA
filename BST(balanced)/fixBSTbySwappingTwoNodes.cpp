@@ -23,7 +23,7 @@ void fixBST(node* root){
     if(first == nullptr){
       first = pre;
     }
-    second = nullptr;
+    second = root;
   }
   pre = root;
   fixBST(root->right);
