@@ -1,26 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void move0(vector<int>&a){
-  int index = 0;
-  for(int i=0;i<a.size();i++){
-    if(a[i]!=0){
-      swap(a[i],a[index]);
-      index++;
-    }
+void sort(vector<int> &a){
+  priority_queue<int,vector<int>,greater<int>> pq(a.begin(),a.end());
+  int low =0;
+  while(pq.empty()==false){
+    a[low] = pq.top();
+    pq.pop();
+    low++;
   }
 }
 
-void print(vector<int>a){
+void print(vector<int> a){
   for(auto i:a) cout<<i<<" ";
 }
 
 int main(){
   int n;
   cin>>n;
-  vector<int>b(n);
-  for(auto &i:b) cin>>i;
-  move0(b);
-  print(b);
+  vector<int> a(n);
+  for(auto &i:a) cin>>i;
+  sort(a);
+  print(a);
   return 0;
 }
