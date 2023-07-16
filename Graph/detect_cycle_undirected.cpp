@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 void addEdge(vector<int>adj[],int u, int v){
   adj[u].push_back(v);
@@ -22,7 +22,7 @@ bool dfsrec(vector<int>adj[],int s,vector<bool>&visited,int parent){
 bool iscycle(vector<int>adj[],int v){
   vector<bool> visited(v,false);
   for(int i=0;i<v;i++){
-    if(visited[i] == false){
+    if(visited[i]==false){
       if(dfsrec(adj,i,visited,-1)==true){
         return true;
       }
@@ -33,7 +33,7 @@ bool iscycle(vector<int>adj[],int v){
 
 int main(){
   int v = 6;
-  vector<int> adj[v];
+  vector<int>adj[6];
   addEdge(adj,0,1);
   addEdge(adj,1,2);
   addEdge(adj,1,3);
