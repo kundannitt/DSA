@@ -4,3 +4,5 @@ a.out
 .vscode
 output
 sample.cpp
+.gitignore
+sample2.cpp
