@@ -1,4 +1,4 @@
-// min  no. of coins
+// total combination possible to get sum
 #include <bits/stdc++.h>
 using namespace std;
 
