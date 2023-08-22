@@ -20,7 +20,7 @@ void bfs(vector<int>adj[],int v, int s){
     cout<<u<<" ";
     for(int v : adj[u]){
       if(visited[v]==false){
-        q.push(v);
+        q.push(v); 
         visited[v] = true;
       }
     }
