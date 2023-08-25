@@ -5,7 +5,7 @@ int maxsumsubarray(vector<int> &a){
     int n=a.size();
     int maxsofar=a[0];
     int res=a[0];
-    for (int i=0;i<n;i++)
+    for (int i=1;i<n;i++)
     {
         maxsofar=max(maxsofar+a[i],a[i]);
         res=max(res,maxsofar);
