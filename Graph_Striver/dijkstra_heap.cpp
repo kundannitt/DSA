@@ -1,4 +1,4 @@
-//fives shortest path from source to all nodes.
+//find shortest path from source to all nodes.
 #include <bits/stdc++.h>
 using namespace std;
 
