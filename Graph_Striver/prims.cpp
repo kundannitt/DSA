@@ -15,7 +15,7 @@ class Solution
         priority_queue<pair<int,int>,
         vector<pair<int,int>>,greater<pair<int,int>>>pq;
         
-        pq.push({0,0});
+        pq.push({0,0}); //{weight , node}
         while(!pq.empty()){
             int wt = pq.top().first;
             int node = pq.top().second;

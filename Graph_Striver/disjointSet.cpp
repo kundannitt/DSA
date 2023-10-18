@@ -9,22 +9,21 @@ struct DisjointSet{
   DisjointSet(int n){
     rank.resize(n,0);
     parent.resize(n,0);
-    size.resize(n,0);
+    size.resize(n,1);
     for(int i=0;i<n;i++){
       parent[i] = i;
-      size[i] = 1;
     }
   }
-  int findUPar(int node){
+  int findUpar(int node){
     if(node == parent[node]){
       return node;
     }
-    return parent[node] = findUPar(parent[node]);
+    return parent[node] = findUpar(parent[node]);
   }
   void UnionbyRank(int u,int v){
-    int ulp_u = parent[u];
-    int ulp_v = parent[v];
-    if(ulp_u == ulp_v){
+    int ulp_u = findUpar(u);
+    int ulp_v = findUpar(v);
+    if(ulp_u == ulp_v){//belongs to same component.
       return;
     }else if(rank[ulp_u] < rank[ulp_v]){//smaller will go to larger
       parent[ulp_u] = ulp_v;
@@ -36,8 +35,9 @@ struct DisjointSet{
     }
   }
   void UnionbySize(int u,int v){
-    int ulp_u = parent[u];
-    int ulp_v = parent[v];
+    int ulp_u = findUpar(u);
+    int ulp_v = findUpar(v);
+    if (ulp_u == ulp_v) return;
     if(size[ulp_u] < size[ulp_v]){
       parent[ulp_u] = ulp_v;
       size[ulp_v] += size[ulp_u]; // all nodes of u get attached to v.
@@ -56,7 +56,7 @@ int main(){
   ds.UnionbyRank(6,7);
   ds.UnionbyRank(5,6);
   //check if 3 and 7 belongs to same graph
-  if(ds.findUPar(3) == ds.findUPar(7)){
+  if(ds.findUpar(3) == ds.findUpar(7)){
     cout<<"same"<<endl;
   }else{
     cout<<"not same"<<endl;
@@ -65,7 +65,7 @@ int main(){
 
   ds.UnionbyRank(3,7);
 
-  if(ds.findUPar(3) == ds.findUPar(7)){
+  if(ds.findUpar(3) == ds.findUpar(7)){
     cout<<"same"<<endl;
   }else{
     cout<<"not same"<<endl;
@@ -77,7 +77,7 @@ int main(){
   ds2.UnionbySize(6,7);
   ds2.UnionbySize(5,6);
   //check if 3 and 7 belongs to same graph
-  if(ds2.findUPar(3) == ds2.findUPar(7)){
+  if(ds2.findUpar(3) == ds2.findUpar(7)){
     cout<<"same"<<endl;
   }else{
     cout<<"not same"<<endl;
@@ -86,7 +86,7 @@ int main(){
 
   ds2.UnionbySize(3,7);
 
-  if(ds2.findUPar(3) == ds2.findUPar(7)){
+  if(ds2.findUpar(3) == ds2.findUpar(7)){
     cout<<"same"<<endl;
   }else{
     cout<<"not same"<<endl;
