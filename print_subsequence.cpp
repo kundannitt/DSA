@@ -1,24 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printsub(string s,string &out){
-  if(out.size() == 2){
-    cout<<out<<" ";
+void printsub(string s,int i,string out){
+  if(i == s.size()){
+    if(out.size() == 2){
+      cout<<out<<endl;
+    }
     return;
   }
-  if(s.empty()){
-    return;
-  }
-  out.push_back(s[0]);
-  printsub(s.substr(1),out);
-  out.pop_back();
-  printsub(s.substr(1),out);
+  // out.push_back(s[i]);
+  printsub(s,i+1,out + s[i]);
+  // out.pop_back();
+  printsub(s,i+1,out);
+  
 }
 
 int main(){
   string s;
   cin>>s;
-  string out;
-  printsub(s,out);
+  printsub(s,0,"");
   return 0;
 }
