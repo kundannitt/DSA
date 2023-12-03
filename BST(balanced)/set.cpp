@@ -23,12 +23,12 @@ int main(){
   }else{
     cout<<"not found\n";
   }
-  //lower bound
+  //lower bound => returns elemnet if found else returns next greater
   auto it = st.lower_bound(11);
   cout<<*it<<endl;
   //upper bound
 
-  auto i = st.upper_bound(11);
+  auto i = st.upper_bound(11); // even if element is present returns next greater
   cout<<*i<<endl;
 
   if(it == i ){
