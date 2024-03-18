@@ -4,7 +4,7 @@ using namespace std;
 
 int firstindex(string s1,string s2){
     auto found = s1.find(s2);
-    if(found ==string ::npos){
+    if(found == string ::npos){
         return -1;
     }
     return found;

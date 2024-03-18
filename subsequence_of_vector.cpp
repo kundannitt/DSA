@@ -1,27 +1,38 @@
-class Solution {
-public:
-  set<vector<int>>st;
-  vector<vector<int>> findSubsequences(vector<int>& nums) {
-    vector<int>out;
-    solve(nums,0,out);
-    vector<vector<int>>ans;
-    for(auto i:st){
-      ans.push_back(i);
-    }
-    return ans;
+#include <bits/stdc++.h>
+using namespace std;
+vector<vector<int>>ans;
+
+void generate(vector<int>&arr,int i,vector<int>out,int size,int n){
+  if(out.size() == size){
+    ans.push_back(out);
+    out.pop_back();
   }
-  void solve(vector<int>&nums,int index,vector<int>&out){
-    if(index == nums.size()){
-      if(out.size() >= 2){
-        st.insert(out);
-      }
-      return;
-    }
-    if(out.size() == 0 || out.back()<=nums[index]){
-      out.push_back(nums[index]);
-      solve(nums,index+1,out);
-      out.pop_back();
-    }
-    solve(nums,index+1,out);
+  if(i >= n){
+    return;
   }
-};
+  out.push_back(arr[i]);
+  generate(arr,i+1,out,size,n);
+  out.pop_back();
+  generate(arr,i+1,out,size,n);
+}
+
+void subsequence(vector<int>&arr,int size,int n){
+  generate(arr,0,{},size,n);// for space optimization take a temp vector and pass as address.
+}
+
+int main(){
+  int n;
+  cin>>n;
+  vector<int>a(n);
+  for(auto &i : a) cin>>i;
+  int size;
+  cin>>size;
+  subsequence(a,size,n);
+  for(auto i : ans){
+    for(auto j : i){
+      cout<<j<<" ";
+    }
+    cout<<endl;
+  }
+  return 0;
+}

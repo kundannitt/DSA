@@ -38,7 +38,7 @@ struct DisjointSet{
     int ulp_u = findUpar(u);
     int ulp_v = findUpar(v);
     if (ulp_u == ulp_v) return;
-    if(size[ulp_u] < size[ulp_v]){
+    if(size[ulp_u] <= size[ulp_v]){
       parent[ulp_u] = ulp_v;
       size[ulp_v] += size[ulp_u]; // all nodes of u get attached to v.
     }else{
